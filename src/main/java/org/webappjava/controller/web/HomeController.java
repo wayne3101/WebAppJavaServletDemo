@@ -25,9 +25,8 @@ public class HomeController extends HttpServlet {
     private INewsService newsService;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long categoryId = 1L;
         request.setAttribute("categories", categoryService.findAll());
-        request.setAttribute("news", newsService.findByCategoryId(categoryId));
+
         RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
         rd.forward(request, response);
     }
